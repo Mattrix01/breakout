@@ -8,6 +8,9 @@ const userStart = [230, 10];
 // tracking user
 let currentPosition = userStart;
 
+const ballStart = [270, 40];
+let ballCurrentPosition = ballStart;
+
 // create block
 // passing through 2 values to figure out where our block goes starting form the left.
 class Block {
@@ -67,6 +70,12 @@ function drawUser() {
   user.style.bottom = currentPosition[1] + "px";
 }
 
+//draw the ball function
+function drawBall() {
+  ball.style.left = ballCurrentPosition[0] + "px";
+  ball.style.bottom = ballCurrentPosition[1] + "px";
+}
+
 //move user
 function moveUser(e) {
   // listening to an event of keys of arrow left or right.
@@ -91,3 +100,20 @@ function moveUser(e) {
 
 // everytime hear a mouse down, invoke moveUser function, then see if key arrow left etc
 document.addEventListener("keydown", moveUser);
+
+//add ball
+const ball = document.createElement("div");
+ball.classList.add("ball");
+drawBall();
+// putting ball inside the parent with appendChild
+grid.appendChild(ball);
+
+//moving ball
+function moveBall() {
+  ballCurrentPosition[0] += 2;
+  ballCurrentPosition[1] += 2;
+  drawBall();
+}
+
+// every 30ms move ball
+setInterval(moveBall, 30);
