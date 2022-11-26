@@ -13,10 +13,26 @@ class Block {
     this.topRight = [xAxis + blockHeight, yAxis + blockHeight];
   }
 }
-//all my blocks
-const blocks = [new Block(10, 270)];
+//all my blocks, how ever many we add we create, 15 below.
+const blocks = [
+  new Block(10, 270),
+  new Block(10, 270),
+  new Block(120, 270),
+  new Block(230, 270),
+  new Block(340, 270),
+  new Block(450, 270),
+  new Block(10, 240),
+  new Block(120, 240),
+  new Block(230, 240),
+  new Block(340, 240),
+  new Block(450, 240),
+  new Block(10, 210),
+  new Block(120, 210),
+  new Block(230, 210),
+  new Block(340, 210),
+  new Block(450, 210),
+];
 
-console.log(blocks[0]);
 // drawing all blocks
 function addBLocks() {
   for (let i = 0; i < blocks.length; i++) {
@@ -25,8 +41,8 @@ function addBLocks() {
     // added my block class to block div created above
     block.classList.add("block");
     //go into blocks array and find first item
-    block.style.left = blocks[i].bottomLeft[0];
-    block.style.bottom = "50px";
+    block.style.left = blocks[i].bottomLeft[0] + "px";
+    block.style.bottom = blocks[i].bottomLeft[1] + "px";
     grid.appendChild(block);
   }
 }
