@@ -57,6 +57,26 @@ addBLocks();
 //add user
 const user = document.createElement("div");
 user.classList.add("user");
-user.style.left = currentPosition[0] + "px";
-user.style.bottom = currentPosition[1] + "px";
+drawUser();
 grid.appendChild(user);
+
+//draw the user in function because using the positioning often
+function drawUser() {
+  user.style.left = currentPosition[0] + "px";
+  user.style.bottom = currentPosition[1] + "px";
+}
+
+//move user
+function moveUser(e) {
+  // listening to an event of keys of arrow left or right.
+  switch (e.key) {
+    // if value of arrow left we move current position below
+    case "ArrowLeft":
+      currentPosition[0] -= 10;
+      drawUser();
+      break;
+  }
+}
+
+// everytime hear a mouse down, invoke moveUser function, then see if key arrow left etc
+document.addEventListener("keydown", moveUser);
