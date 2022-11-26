@@ -1,6 +1,7 @@
 const grid = document.querySelector(".grid");
 const blockWidth = 100;
 const blockHeight = 20;
+const boardWidth = 560;
 
 // where user block starts
 const userStart = [230, 10];
@@ -72,8 +73,18 @@ function moveUser(e) {
   switch (e.key) {
     // if value of arrow left we move current position below
     case "ArrowLeft":
-      currentPosition[0] -= 10;
-      drawUser();
+      // if statement to stop from going off screen
+      if (currentPosition[0] > 0) {
+        currentPosition[0] -= 10;
+        drawUser();
+      }
+      break;
+    case "ArrowRight":
+      // if statement to stop from going off screen
+      if (currentPosition[0] < boardWidth - blockWidth) {
+        currentPosition[0] += 10;
+        drawUser();
+      }
       break;
   }
 }
