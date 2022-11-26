@@ -2,6 +2,11 @@ const grid = document.querySelector(".grid");
 const blockWidth = 100;
 const blockHeight = 20;
 
+// where user block starts
+const userStart = [230, 10];
+// tracking user
+let currentPosition = userStart;
+
 // create block
 // passing through 2 values to figure out where our block goes starting form the left.
 class Block {
@@ -48,3 +53,10 @@ function addBLocks() {
 }
 
 addBLocks();
+
+//add user
+const user = document.createElement("div");
+user.classList.add("user");
+user.style.left = currentPosition[0] + "px";
+user.style.bottom = currentPosition[1] + "px";
+grid.appendChild(user);
