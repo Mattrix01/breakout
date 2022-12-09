@@ -64,7 +64,7 @@ function addBlocks() {
     console.log(blocks[i].bottomLeft);
   }
 }
-
+addBlocks();
 //add user
 const user = document.createElement("div");
 user.classList.add("user");
