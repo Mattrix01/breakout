@@ -140,6 +140,7 @@ function checkForCollisions() {
       changeDirection();
       score++;
       scoreDisplay.innerHTML = score;
+      // check for a win
       if (blocks.length == 0) {
         scoreDisplay.innerHTML = "You Win!";
         clearInterval(timerId);
